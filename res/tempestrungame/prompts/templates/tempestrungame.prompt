@@ -1,0 +1,35 @@
+Assume you are playing a PC game called 'Tempest Run'.  
+
+You need to control a character who moves through a three-dimensional space inside a futuristic tunnel filled with various obstacles and enemies. Your goal is to navigate through the tunnel, avoid or overcome obstacles, and run as far as possible. Avoid colliding with red spikes, purple walls, or failing to deal with green enemies.  
+
+Use the optimal combination of movements to progress through the tunnel smoothly and efficiently. Monitor the character's position relative to obstacles and react appropriately to avoid losing progress.  
+
+<$history$>  
+
+<$image_current_step$>  
+This screenshot represents the current step of the game.  
+
+The last frame shows the current state of the game, while the previous frames show the character's previous movements.  
+
+Important notes:
+1. Use JUMP to jump over red spikes on the ground.  
+2. Use SLIDE to duck and kick green enemies to eliminate them.  
+3. Use LEFT or RIGHT to move around obstacles, such as purple walls or spikes.  
+4. Use RISE to return to a normal running position after a SLIDE.  
+5. NONE is a valid action to maintain the current state if no immediate action is needed.  
+
+You can make six types of actions to control the character:  
+1. JUMP: Makes the character jump upward, useful for avoiding ground obstacles like red spikes.  
+2. LEFT: Moves the character to the left.  
+3. RIGHT: Moves the character to the right.  
+4. SLIDE: Makes the character duck and slide forward, useful for dealing with green enemies or passing under certain obstacles.  
+5. RISE: Returns the character to a normal running position after sliding. 
+6. NONE: No new action is performed; the character maintains their current trajectory.  
+
+You should think step by step and respond with the following format, remember to respond with plain text without any special characters or symbols, DO NOT respond in markdown or Latex or any other format.  
+
+Response:  
+
+Observation: ... (Describe the character's current position and nearby obstacles or enemies.)  
+Reasoning: ... (Think step by step and explain how you choose the action.)  
+Action: ... (Choose ONE of the six actions to control the character. Do NOT add any other words.)  

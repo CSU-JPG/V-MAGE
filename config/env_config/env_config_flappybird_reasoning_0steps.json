@@ -1,0 +1,16 @@
+{
+    "env_name": "Flappy Bird",
+    "env_short_name": "flappybirdgame",
+    
+    "game_module": "game.flappybird_game",
+    "game_class": "FlappyBirdGame",
+    "prompt": "./res/flappybirdgame/prompts/templates/flappybird_standard.prompt",
+
+    "use_history": "False",
+
+    "use_instruction": "False",
+    "instruction": [
+        "TODO"
+    ]
+
+}

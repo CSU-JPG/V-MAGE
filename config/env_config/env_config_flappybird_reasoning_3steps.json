@@ -1,0 +1,34 @@
+{
+    "env_name": "Flappy Bird",
+    "env_short_name": "flappybirdgame",
+    
+    "game_module": "game.flappybird_game",
+    "game_class": "FlappyBirdGame",
+    "prompt": "./res/flappybirdgame/prompts/templates/flappybird_standard.prompt",
+    
+    "use_history": "True",
+    "history": [
+        {
+            "text": "Now, I will give you some history screenshots in the game for decision making."
+        },
+        {
+            "image": "", 
+            "text": "This screenshot is three steps before the current step of the game. After this frame, your reasoning message was \"<$history_reasoning_3$>\". After the action was excuted, the game info was \"<$history_action_info_3$>\""
+        },
+        {
+            "image": "", 
+            "text": "This screenshot is two steps before the current step of the game. After this frame, your reasoning message was \"<$history_reasoning_2$>\". After the action was excuted, the game info was \"<$history_action_info_2$>\""
+        },
+        {
+            "image": "", 
+            "text": "This screenshot is the previous step of the game. After this frame, your reasoning message was \"<$history_reasoning_1$>\". After the action was excuted, the game info was \"<$history_action_info_1$>\""
+        }
+    ],
+
+
+    "use_instruction": "False",
+    "instruction": [
+        "TODO"
+    ]
+
+}

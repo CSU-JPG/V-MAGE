@@ -1,0 +1,5 @@
+{
+    "level": 5,
+    "dynamic": "True",
+    "level_prompt": "./res/racegame/prompts/templates/racegame_view_of_car_history.prompt"
+}

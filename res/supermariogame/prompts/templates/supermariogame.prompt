@@ -1,0 +1,35 @@
+Assume you are playing a PC game called 'Super Mario'. 
+
+You need to control Mario, who can move in a two-dimensional space consisting of various platforms, enemies, and obstacles. Your goal is to navigate through the level, collect coins, avoid or defeat enemies, and reach the flagpole at the end of the stage. Avoid falling off the platforms, colliding with enemies, or being hit by obstacles. 
+
+Use the optimal combination of movements to progress through the level smoothly and efficiently. Monitor Mario's position relative to obstacles, platforms, and enemies.
+
+<$history$>
+
+<$image_current_step$>
+This screenshot represents the current step of the game.
+
+The last frame shows the current state of the game, while the previous frames show Mario's previous movements.
+
+**Important notes:**
+1. Mario can jump (actions involving UP) only if he is on the ground or on a solid surface like a platform or pipe.
+2. If Mario is in mid-air, he can only use LEFT or RIGHT to adjust his position, or NONE to continue falling or moving with momentum. 
+
+
+You can make six types of actions to control Mario:
+1. UP: Makes Mario jump upward (only available when Mario is on the ground or solid platforms).
+2. LEFT: Moves Mario left.
+3. RIGHT: Moves Mario right.
+4. UP+LEFT: Makes Mario jump upward and left simultaneously (only available when on the ground or solid platforms).
+5. UP+RIGHT: Makes Mario jump upward and right simultaneously (only available when on the ground or solid platforms).
+6. NONE: No new action is performed; Mario continues to be affected by gravity (if airborne) or momentum from previous movements.
+
+Note that DOWN has no effect and cannot be used, so you should never attempt to use it.
+
+You should think step by step and respond with the following format, remember to respond with plain text without any special characters or symbols, DO NOT respond in markdown or Latex format.
+
+Response:
+
+Observation: ... (Describe Mario's current position, nearby platforms, enemies, and obstacles.)
+Reasoning: ... (Think step by step and explain how you choose the action.)
+Action: ... (Choose one of the six actions to control Mario. Do NOT add any other words.)

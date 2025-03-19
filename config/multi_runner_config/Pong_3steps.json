@@ -1,0 +1,19 @@
+{
+    "project_name": "pong_3steps",
+    "tasks": [
+        {
+            "gameEnvConfig": "./config/env_config/env_config_pong_reasoning_3steps.json",
+            "levelConfig": "./config/level_config/ponggame/level0.json"
+        },
+        {
+            "gameEnvConfig": "./config/env_config/env_config_pong_reasoning_3steps.json",
+            "levelConfig": "./config/level_config/ponggame/level1.json"
+        },
+        {
+            "gameEnvConfig": "./config/env_config/env_config_pong_reasoning_3steps.json",
+            "levelConfig": "./config/level_config/ponggame/level2.json"
+        }
+    ]
+}
+  
+  

@@ -1,0 +1,15 @@
+{
+    "project_name": "flappybird_3steps_split_1",
+    "tasks": [
+        {
+            "gameEnvConfig": "./config/env_config/env_config_flappybird_reasoning_3steps.json",
+            "levelConfig": "./config/level_config/flappybirdgame/level1.json"
+        },
+        {
+            "gameEnvConfig": "./config/env_config/env_config_flappybird_reasoning_3steps.json",
+            "levelConfig": "./config/level_config/flappybirdgame/level2.json"
+        }
+    ]
+}
+  
+  

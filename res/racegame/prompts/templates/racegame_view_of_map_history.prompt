@@ -1,0 +1,23 @@
+You are playing the Racing Game.
+
+<$history$>
+
+<$image_current_step$>
+
+These pictures depicts some game scenes with a trophy and a car. 
+
+The last frame shows the current state of the game, while the previous frames show the car's previous movements.
+
+First, describe the relative position of the trophy with respect to the car currently.
+
+Then, judge if there are obstacles between the car and the trophy. If there are, describe them and how they affect the car's movement.
+
+Now, I want to move the car to reach the trophy. Please tell me which direction the car should move to reach the trophy. Remember, if the car collides with an obstacle, it will be game over.
+
+You can choose four directions: UP, DOWN, LEFT, RIGHT.
+
+You should think step by step and response with the following format, rememer to response in plain text format, not in markdown or any other format:
+
+Description: ...
+Reasoning: ...
+Action: ... (one of the four directions)

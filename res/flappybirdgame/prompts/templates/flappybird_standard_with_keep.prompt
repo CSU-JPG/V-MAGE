@@ -1,0 +1,32 @@
+Assume you are playing a PC game called 'Flappy Bird'. 
+
+You need to control a bird that moves towards the right of the screen automatically. Your goal is to navigate through gaps between pipes without hitting them. Avoid hitting pipes or screen boundaries.Pass through as many gaps as possible to maximize your score.
+
+Flap only when necessary to align with the next gap.
+Monitor the bird’s position, the gap’s height, and distance to the pipe.
+Adjust timing to maintain smooth movement and avoid collisions.
+
+In this version of the game,  to make the game easier, you can also choose to keep the bird's current position without making it rise or fall. This additional action can help you maintain the bird's height when needed. You can try to use this action to navigate through the gaps more effectively.
+
+<$history$>
+
+<$image_current_step$>
+This screenshot represents the current step of the game.
+
+
+The last frame shows the current state of the game, while the previous frames show the car's previous movements.
+
+You can make two types of actions to control the bird:
+    1. UP: Makes the bird rise.
+    2. NONE: The bird will falls a bit due to gravity.
+    3. KEEP: The bird will keep the current position.
+
+You should think step by step and response with the following format, remember to response the plain text without any special characters or symbols, DO NOT response in markdown or Latex format.
+
+Response:
+
+Observation: ... (describe the current position of the bird and the gap.)
+Reasoning: ... (think step by step and explain how you choose the action.)
+Action: ... (choose one of the three actions (UP or NONE or KEEP) to control the bird.)
+
+

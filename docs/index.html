@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>V-MAGE: A Game Evaluation Framework for Assessing Visual-Centric Capabilities in MLLMs</title>
+
+
+      <!-- <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet"> -->
+
+  <!-- <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <link rel="icon" href="./static/images/logo.png">
+
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <meta property="og:image:width" content="1600" />
+  <meta property="og:image:height" content="900" />
+
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L7VEDHS6G8');
+</script>
+
+
+<body>
+    <section class="hero">
+      <div class="hero-body no-bottom-padding">
+        <div class="container">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <div style="display: flex; align-items: center;">
+                <img src="./static/images/logo.png" alt="V-MAGE Logo" style="margin-right: 5px; height: 80px;margin-top: -10px;">
+                <h1 class="title is-1 publication-title">V-MAGE: A Game Evaluation Framework for Assessing Visual-Centric Capabilities in MLLMs</h1>
+              </div>
+              <!-- <div style="text-align: center; margin-top: 15px; margin-bottom: 15px;"> -->
+                <!-- <h3 class="title is-3 publication-title" style="color: rgba(171, 20, 20, 0.874); font-size: 1.8rem;">CVPR 2025</h3> -->
+              <!-- </div> -->
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <!-- <a target="_blank" href="https://jwyang.github.io/">Jianwei Yang</a><sup>*</sup><sup>1</sup><sup>†</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="https://cs-people.bu.edu/rxtan/">Reuben Tan</a><sup>1</sup><sup>†</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="https://qianhuiwu.github.io/">Qianhui Wu</a><sup>1</sup><sup>†</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="https://ruijiezheng.com/">Ruijie Zheng</a><sup>2</sup><sup>‡</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="">Baolin Peng</a><sup>1</sup><sup>‡</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="https://cheryyunl.github.io">Yongyuan Liang</a><sup>2</sup><sup>‡</sup>&nbsp;&nbsp;&nbsp;<br>
+
+                  <a target="_blank" href="http://yu-gu.me/">Yu Gu</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="https://pages.cs.wisc.edu/~mucai/">Mu Cai</a><sup>3</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="https://seonghyeonye.github.io/">Seonghyeon Ye</a><sup>4</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="https://joeljang.github.io/">Joel Jang</a><sup>5</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="">Yuquan Deng</a><sup>5</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="https://sites.google.com/site/larsliden">Lars Liden</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="https://www.microsoft.com/en-us/research/people/jfgao/">Jianfeng Gao</a><sup>1</sup><sup>▽</sup>&nbsp;&nbsp;&nbsp;<br> -->
+                  
+                  <a target="_blank" href="">Xiangxi Zheng</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="">XXXX</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="">XXXX</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="">XXXX</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="">XXXX</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="">XXXX</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
+                    
+                  <br>
+                  <sup>?</sup>Microsoft Research&nbsp;&nbsp;&nbsp;&nbsp;
+                  <sup>?</sup>Nanjing University&nbsp;&nbsp;&nbsp;&nbsp;
+                  <sup>?</sup>Central South University&nbsp;&nbsp;&nbsp;&nbsp;
+                  <!-- <sup>4</sup>KAIST&nbsp;&nbsp;&nbsp;&nbsp;
+                  <sup>5</sup>University of Washington -->
+                  <br>&ast; Project lead.&nbsp;&nbsp;&nbsp;&nbsp;<sup>†</sup>First authors.&nbsp;&nbsp;&nbsp;&nbsp;<sup>‡</sup>Second authors.&nbsp;&nbsp;&nbsp;&nbsp;<sup>▽</sup>Leadership
+                </span>
+              </div>
+              <div class="column has-text-centered">
+              <div class="publication-links">
+                  <!-- PDF Link. -->
+                  <!-- <span class="link-block">
+                    <a href="https://arxiv.org/abs/2406.00439"
+                       class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
+                  </span> -->
+  
+                  <!-- arXiv Link. -->
+                  <span class="link-block">
+                    <a target="_blank" href=""
+                       class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                          <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span>ArXiv</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href=""
+                       class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                          <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                      </a>
+                    </span>
+                    <!-- Dataset Link. -->
+                    <span class="link-block">
+                      <a href="https://huggingface.co/spaces/Fengx1nn/V-MAGE-Playground"
+                         class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                            <img src="static/images/hf_icon.svg" />
+                        </span>
+                        <span>Gameplay Demo</span>
+                        </a>
+                      </span>
+                    
+                    <span class="link-block">
+                      <a href="https://huggingface.co/spaces/Fengx1nn/V-MAGE-Evaluation"
+                          class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                            <img src="static/images/hf_icon.svg" />
+                        </span>
+                        <span>Evaluation Demo</span>
+                        </a>
+                      </span>
+
+                    <!-- <span class="link-block">
+                        <a href=""
+                            class="external-link button is-normal is-rounded is-dark">
+                            <span class="icon">
+                                <img src="static/images/hf_icon.svg" />
+                            </span>
+                            <span>Leader Board</span>
+                            </a>
+                        </span> -->
+
+                <!-- <span class="link-block">
+                  <a href="https://ai.azure.com/explore/models/microsoft-magma-8b/version/1/registry/HuggingFace?tid=72f988bf-86f1-41af-91ab-2d7cd011db47"
+                     class="external-link button is-normal is-rounded is-dark">
+                     <span><span style="margin-right: 0px;margin-left: -5px; font-size: 1.2em;">☁️</span> Azure AI Foundry</span>
+                    </a>
+                </span> -->
+
+                <!-- <span class="link-block">
+                  <a target="_blank" href="https://x.com/jw2yang4ai/status/1892348660484280669"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-twitter"></i>
+                    </span>
+                    <span>Twitter / X</span>
+                  </a>
+                </span> -->
+                
+                <!-- <span class="link-block">
+                  <a href="https://www.youtube.com/watch?v=SbfzvUU5yM8"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Youtube Video</span>
+                  </a>
+                </span> -->
+
+                </div>           
+              </div>
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <div align="center">
+            <img src="./static/images/overview.png" alt="Image description" width="100%">
+          </div>  
+          <br> 
+          <!-- <h2 class="subtitle has-text-centered"> -->
+          <h2 class="subtitle">
+            <!-- <strong>Magma</strong> is the <span style="color: rgb(182, 30, 30);">first</span> foundation model for multimodal AI agents. As the bedrock for mutimodal agentic models, it possesse strong capabilities to perceive the multimodal groundingly world AND take goal-driven actions precisely. By effectively transferring knowledge from freely available visual and language data, <strong>Magma</strong> bridges verbal, spatial and temporal intelligence to navigate complex tasks and settings across digial and physical world. -->
+            <!-- <strong>Magma</strong> is the <span style="color: rgb(182, 30, 30);">first</span> foundation model for multimodal AI agents. As the bedrock for mutimodal agentic models, it possesse strong capabilities to perceive the multimodal groundingly world AND take goal-driven actions precisely. By effectively transferring knowledge from freely available visual and language data, <strong>Magma</strong> bridges verbal, spatial and temporal intelligence to navigate complex tasks and settings across digial and physical world. -->
+            We present <strong>V-MAGE</strong>, a benchmark built on video game environments designed to evaluate the comprehensive performance of MLLMs, with a focus on <span style="color: rgb(182, 30, 30);">visual-centric</span> capabilities. <strong>V-MAGE</strong> consists of five distinct video game environments, each containing manually crafted levels with varying difficulties to holistically assess the visual perception and reasoning abilities of MLLM. The evaluation employs a dynamic Elo-based framework with statistical stabilization, iteratively refining models' relative capabilities through randomized pairwise comparisons across multi-round interactions. 
+          </h2>
+          
+        </div>
+    
+      </div>
+    </section>
+
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container is-two-thirds">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-two-thirds">
+              <h2 class="title is-3">Abstract</h2>
+            </div>
+        </div>
+      
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-two-thirds ">
+            <div class="content has-text-justified">
+              Recent advancements in Multimodal Large Language Models (<strong>MLLMs</strong>) have led to significant improvements across various multimodal benchmarks. However, as evaluations shift from static datasets to open-world, dynamic environments, current game-based benchmarks remain inadequate—they lack visual-centric tasks and fail to assess the diverse reasoning skills required for real-world decision-making.
+              To address this, we introduce <strong>V</strong>isual-centric <strong>M</strong>ultiple <strong>A</strong>bilities <strong>G</strong>ame Evaluation (<strong>V-MAGE</strong>), a game-based evaluation framework designed to assess MLLMs’ visual reasoning capabilities. V-MAGE features five diverse games with 30+ handcrafted levels, testing models on core visual skills such as positioning, trajectory tracking, timing, and visual memory, alongside higher-level reasoning like long-term planning and deliberation.
+              We use <strong>V-MAGE</strong> to evaluate leading MLLMs, revealing significant challenges in their visual perception and reasoning. In all game environments, the top-performing MLLMs (including models such as GPT-4o and Gemini-2.0-flash-exp), as determined by Elo rating comparisons, exhibit a substantial performance gap compared to humans.
+              Our findings highlight critical limitations, including various types of perceptual errors made by the models, and suggest potential avenues for improvement from an agent-centric perspective, such as refining agent strategies and addressing perceptual inaccuracies.
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3" style="text-align: center; padding-bottom: 10px;margin-top: -40px;">  Pipeline</h2>
+            <div class="columns is-centered">
+              <div class="column is-four-fifths">
+                <div class="columns is-centered">
+                  <div style="width: 100%; display: inline-block;">
+                    <img src="./static/images/pipeline2.png">
+                  </div>
+                </div>
+                <p style="text-align: left;font-size: 18px; margin-top: 20px;"><strong>V-MAGE Evaluation Pipeline.</strong> 
+                  We selected five different games and designed several levels for each game to decompose the evaluation of model performance. 
+                  The games used are <strong style="color: rgb(0, 97, 243);">FlappyBird, RaceGame, SuperMario, PongGame, and Tempest Run.</strong> <br>
+                  During the evaluation process, the <strong>Agent</strong> module receives visual game state information from the <strong>Game</strong> module, specifically in the form of game screenshots. Within the <strong>Agent</strong> module, these screenshots are structured into inputs for the model. 
+                  In the baseline agent of <strong>V-MAGE</strong>, inputs to the MLLM models are constructed by combining screenshots from the most recent three frames with a prompt containing the game rules. 
+                  The output of the model is processed by the <strong>Agent</strong> module into response actions, which are subsequently sent back to the <strong>Game</strong> module.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3" style="text-align: center; padding-bottom: 10px;margin-top: -40px;">Comparison</h2>
+            <div class="columns is-centered">
+              <div class="column is-four-fifths">
+                <div class="columns is-centered">
+                  <div style="width: 100%; display: inline-block;">
+                    <img src="./static/images/comparison table.png">
+                  </div>
+                </div>
+                <p style="text-align: left;font-size: 18px; margin-top: 20px;"><strong>The comparison of V-MAGE with existing game-based evaluation benchmarks.</strong> 
+                  *Text in V-MAGE only represents the instructions for game rules and output format.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3" style="text-align: center; padding-bottom: 10px;margin-top: -40px;">Model Performance</h2>
+            <div class="columns is-centered">
+              <div class="column is-four-fifths">
+
+
+                <div class="columns is-centered">
+                  <div style="width: 20%; display: inline-block; margin-right: 20px;">
+                    <img src="./static/images/gif/GPT4o/SuperMario-LV1.gif">
+                    <p style="text-align: center; font-size: 15px;"> OpenAI GPT-4o </p>
+                  </div>
+                  <div style="width: 20%; display: inline-block; margin-right: 20px;">
+                    <img src="./static/images/gif/Gemini-2_0-flash-exp/SuperMario-LV1.gif">
+                    <p style="text-align: center; font-size: 15px;"> Google Gemini 2.0 Flash </p>
+                  </div>
+                  <div style="width: 20%; display: inline-block; margin-right: 0px;">
+                    <img src="./static/images/gif/QwenVL2_5_72B/SuperMario-LV1.gif">
+                    <p style="text-align: center; font-size: 15px;">Qwen2.5VL-72B </p>
+                  </div>
+                </div>
+
+
+                <div class="columns is-centered">
+                  <div style="width: 20%; display: inline-block; margin-right: 20px;">
+                    <img src="./static/images/gif/GPT4o/Race-merged.gif">
+                    <p style="text-align: center; font-size: 15px;"> OpenAI GPT-4o </p>
+                  </div>
+                  <div style="width: 20%; display: inline-block; margin-right: 20px;">
+                    <img src="./static/images/gif/Gemini-2_0-flash-exp/Race-merged.gif">
+                    <p style="text-align: center; font-size: 15px;"> Google Gemini 2.0 Flash </p>
+                  </div>
+                  <div style="width: 20%; display: inline-block; margin-right: 0px;">
+                    <img src="./static/images/gif/QwenVL2_5_72B/Race-merged.gif">
+                    <p style="text-align: center; font-size: 15px;">  Qwen2.5VL-72B </p>
+                  </div>
+                </div>
+               
+                <div class="columns is-centered">
+                  
+                  <div style="width: 15%; display: inline-block; margin-right: 80px;">
+                        <img src="./static/images/gif/GPT4o/FlappyBird-LV7.gif" style="float: left;">
+                    <p style="text-align: center; font-size: 15px;"> OpenAI GPT-4o </p>
+                  </div>
+
+                  <div style="width: 15%; display: inline-block; margin-right: 80px;">
+                         <img src="./static/images/gif/Gemini-2_0-flash-exp/FlappyBird-LV7.gif">
+                     <p style="text-align: center; font-size: 15px;"> Google Gemini 2.0 Flash </p>
+                  </div>
+
+                  <div style="width: 15%; display: inline-block; margin-right: 0px; ">
+                        <img src="./static/images/gif/QwenVL2_5_72B/FlappyBird-LV7.gif" style="float: right;">
+                    <p style="text-align: center; font-size: 15px;"> Qwen2.5VL-72B </p>
+                  </div>
+                </div>
+                
+                
+                <p style="text-align: left;font-size: 18px; margin-top: 20px;">
+                  <strong>Model performance in different games.</strong>
+
+                  The game playing examples of top-performing MLLMs.
+                  These examples are sampled from the evaluation process in games of <strong> V-MAGE</strong>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+    <section class="section body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3" style="text-align: center; padding-bottom: 10px;margin-top: -40px;">Results</h2>
+            <div class="columns is-centered">
+              <div class="column is-four-fifths">
+                <div class="columns is-centered">
+                  <div style="width: 100%; display: inline-block;">
+                    <img src="./static/images/result table 2.png">
+                  </div>
+                </div>
+                <p style="text-align: left;font-size: 18px; margin-top: 20px;"><strong>Evaluation results(Elo rating).</strong> 
+                  Performance comparison across different games based on the elo ranking system.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <div class="columns is-centered">
+              <div class="column is-four-fifths">
+                <div class="columns is-centered">
+                  <div style="width: 100%; display: inline-block;">
+                    <img src="./static/images/model_analysis_broken_axis_4.png">
+                  </div>
+                </div>
+                <p style="text-align: left;font-size: 18px; margin-top: 20px;"><strong>Evaluation results(Score).</strong> 
+                  The MLLM trails humans by a large margin in all six games.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3" style="text-align: center; padding-bottom: 10px;margin-top: -40px;">Error Case</h2>
+            <div class="columns is-centered">
+              <div class="column is-four-fifths">
+                <div class="columns is-centered">
+                  <div style="width: 100%; display: inline-block;">
+                    <img src="./static/images/perception error case.png">
+                  </div>
+                </div>
+                <p style="text-align: left;font-size: 18px; margin-top: 20px;"><strong>Error analysis</strong> in RaceGame and FlappyBird.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</body>

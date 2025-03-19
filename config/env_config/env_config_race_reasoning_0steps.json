@@ -1,0 +1,16 @@
+{
+    "env_name": "Race Game",
+    "env_short_name": "racegame",
+    
+    "game_module": "game.race_game",
+    "game_class": "RaceGame",
+    "prompt": "./res/racegame/prompts/templates/racegame.prompt",
+
+    "use_history": "False",
+
+    "use_instruction": "False",
+    "instruction": [
+        "TODO"
+    ]
+
+}

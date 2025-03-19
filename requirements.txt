@@ -1,0 +1,10 @@
+pandas==2.2.3
+imageio==2.36.0
+pillow==10.4.0 
+opencv-python==4.11.0.86
+pygame==2.6.1
+wandb==0.18.5
+openai==1.59.8
+scipy==1.15.1
+numpy==2.2.4
+requests==2.32.3

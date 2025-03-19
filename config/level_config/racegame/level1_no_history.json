@@ -1,0 +1,5 @@
+{
+    "level": 1,
+    "dynamic": "True",
+    "level_prompt": "./res/racegame/prompts/templates/racegame_view_of_map_no_obstacle.prompt"
+}

@@ -1,0 +1,28 @@
+Assume you are playing a PC game called 'Pong'.
+
+You need to control two paddles on the left and right sides of the screen to hit a ball back and forth. Your goal is to prevent the ball from passing your paddle while trying to make it pass the opponent's paddle. Each time the ball is successfully hit by a paddle, that side gains one point. The final score is the sum of both sides' points.
+
+Control the paddles' movements to align with the ball's trajectory and ensure successful hits. Adjust the paddles' positions smoothly to respond to the ball's movement and maintain control over the game.
+
+<$history$>
+
+<$image_current_step$>
+This screenshot represents the current step of the game.
+
+The last frame shows the current state of the game, while the previous frames show the paddles' and ball's previous movements.
+
+You can make four types of actions to control the paddles:
+1. LEFTUP: Moves the left paddle up.
+2. LEFTDOWN: Moves the left paddle down.
+3. RIGHTUP: Moves the right paddle up.
+4. RIGHTDOWN: Moves the right paddle down.
+5. NONE: No action.
+
+You should think step by step and respond with the following format, remember to respond with plain text without any special characters or symbols, DO NOT respond in markdown or Latex format.
+
+
+Observation: ... (describe the current positions of both paddles, the ball, and the ball's movement trajectory.) 
+
+Reasoning: ... (think step by step and explain how you choose the action, including predictions about wall reflections and the ball's trajectory.) 
+
+Action: ... (choose one of the four actions: LEFTUP, LEFTDOWN, RIGHTUP, RIGHTDOWN, NONE. Do NOT add any other words.)

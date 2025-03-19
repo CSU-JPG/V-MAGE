@@ -1,0 +1,27 @@
+Assume you are playing a PC game called 'Racing Game'. 
+
+<$history$>
+
+<$image_current_step$>
+
+These pictures depicts some game scenes with a trophy and a car. 
+
+The last frame shows the current state of the game, while the previous frames show the car's previous movements.
+
+First, describe the relative position of the trophy with respect to the car currently, and judge if there are obstacles between the car and the trophy. If there are, describe them and how they affect the car's movement.
+
+Then, I want you to move the car to reach the trophy. Remember, if the car collides with an obstacle, it will be game over.
+
+You should imagine you are the driver of the car, which means you are facing the same direction as the car. Then you should think about the car's movement from the driver's perspective.
+
+To do this, you should judge if the car is moving, and if so, in which direction it is moving. You should also consider the car's current position and the direction it is facing.
+
+You should think step by step and make some reasoning about the car's movement.
+
+You can choose four actions: FORWARD, BACKWARD, LEFT, RIGHT.
+
+Response with the following format, rememer to response in plain text format, not in markdown or any other format:
+
+Description: ...(including the relative position, obstacles, and the car's movement)
+Reasoning: ...
+Action: ... (one of the four actions)
