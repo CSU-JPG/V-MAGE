@@ -1,14 +1,20 @@
+*link:* [*CSU-JPG V-MAGE Repo*](https://github.com/CSU-JPG/V-MAGE)
+---
+<br>
+<br>
+
 # V-MAGE: A Game Evaluation Framework for Assessing Visual-Centric Capabilities in MLLMs
+
 
 ![](./docs/static/images/overview.png)
 
 
 <p align="center">
-   <a href="https://fengxin-zhxx.github.io/V-MAGE/" target="_blank">🌐 Project Page</a> | <a href="" target="_blank">📃 Paper </a> | <a href="" target="_blank">🤗 Playground </a> 
+   <a href="https://csu-jpg.github.io/V-MAGE/" target="_blank">🌐 Project Page</a> | <a href="" target="_blank">📃 Paper </a> | <a href="" target="_blank">🤗 Playground </a> 
 </p>
 
 
-## ✨ Introducing [V-MAGE Benchmark](https://github.com/fengxin-zhxx/V-MAGE)
+## ✨ Introducing **V-MAGE Benchmark**
 
 V-MAGE is a **game-based** benchmark designed to evaluate **visual-centric** capabilities through **flexible gameplay** and **carefully designed levels**. Its defining features are as follows:
   
@@ -34,7 +40,7 @@ will be added soon
 <!-- 启动Evaluation -->
 To evaluate model with V-MAGE, you can use the following steps:
 
-### step 1: Dependencies Installation
+### Step 1: Dependencies Installation
 
 Dependencies can be installed via pip:
 
@@ -46,7 +52,7 @@ pip install -r requirements.txt
 ```
 
 <!-- 准备模型服务 -->
-### step 2: Model Service
+### Step 2: Model Service
 
 <!-- 如果使用API服务，可以跳过此步骤 -->
 
@@ -73,7 +79,7 @@ vllm serve <path-to-model> --trust-remote-code --max-model-len 15000 --limit-mm-
 
 You can also use *nohup* to run the service in the background.
 
-### step3: Config Preparation
+### Step3: Config Preparation
 
 Prepare config file for the model service. 
 
@@ -87,7 +93,7 @@ openai_api_key = EMPTY
 openai_api_base = http://localhost:8000/v1 # or your own service address
 ```
 
-### step 4: Let's Play!
+### Step 4: Let's Play!
 
 #### runner.py: To evaluate a single level
 
