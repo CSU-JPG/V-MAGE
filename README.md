@@ -25,15 +25,20 @@ V-MAGE is a **game-based** benchmark designed to evaluate **visual-centric** cap
 - **Adaptive ELO-based Ranking**: V-MAGE uses a dynamic Elo system for performance comparison, avoiding manual score normalization and performance ceilings.
 
 
-## 📈 Results 
+## 📈 Leaderboard 
 
-### Leaderboard
+| model | avg_elo | race | supermario | pong | flappybird | tempestrun |
+| --- | --- | --- | --- | --- | --- | --- |
+| gpt4o | **1550.83** | **1605.57** | 1536.58 | 1506.19 | **1590.23** | 1515.60 |
+| qwen2_5vl_72b | 1543.85 | 1546.67 | **1608.86**| 1496.32 | 1535.53 | 1531.89 |
+| gemini-2.0-flash-exp | 1522.82 | 1519.88 | 1536.84 | **1516.51** | 1524.91 | 1515.96 |
+| internvl2_5_78b | 1512.60 | 1468.74 | 1573.56 | 1512.72 | 1497.01 | 1510.96 |
+| qwen2vl_72b | 1506.49 | 1509.68 | 1535.26 | 1498.65 | 1455.87 | **1532.99** |
+| internvl2_5_8b | 1466.12 | 1464.91 | 1393.19 | 1505.23 | 1489.18 | 1478.11 |
+| random | 1450.53 | 1445.54 | 1436.00 | 1487.91 | 1457.36 | 1425.84 |
+| qwen2vl_7b | 1446.75 | 1439.01 | 1379.71 | 1476.48 | 1449.90 | 1488.66 |
 
-![](./docs/static/images/result%20table%202.png)
-
-### Other Results
-
-will be added soon
+[Submit](https://github.com/fengxin-zhxx/V-MAGE-Results) your own agent results.
 
 ## 🚀 Quick Start
 
