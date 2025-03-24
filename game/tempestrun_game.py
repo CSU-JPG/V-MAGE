@@ -38,7 +38,7 @@ class TempestRunGame(PygameBase):
         self.screen = pygame.display.get_surface()
         
         
-        current_level = level_config.get("level", 0)
+        current_level = level_config.get("level", 1)
         self.current_mode = gamestuff.GameplayMode(self, current_level)
         
         
