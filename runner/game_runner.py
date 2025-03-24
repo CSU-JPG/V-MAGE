@@ -135,6 +135,7 @@ def entry(args, run_name=""):
             now_avg_score = 0 if len(scores) == 0 else sum([score["score"] for score in scores])/len(scores)
             now_avg_score = round(now_avg_score, 2)
             config.now_avg_score = now_avg_score
+            
             score_dict, game_frames = pipelineRunner.run()
             pbar.update()
             
@@ -159,7 +160,12 @@ def entry(args, run_name=""):
             wandb.log(log_dict)
             
             pickle.dump(scores, open(pickle_record_path, "wb"))
-            
+        
+        
+        now_avg_score = 0 if len(scores) == 0 else sum([score["score"] for score in scores])/len(scores)
+        now_avg_score = round(now_avg_score, 2)
+        config.now_avg_score = now_avg_score
+        
         pbar.set_postfix(
             avg_score=config.now_avg_score
         )

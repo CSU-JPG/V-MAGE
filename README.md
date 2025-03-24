@@ -101,17 +101,18 @@ openai_api_base = http://localhost:8000/v1 # or your own service address
 python runner.py \
 --llmProviderConfig=./config/model_config/openai_service_config.ini \
 --gameEnvConfig=./config/env_config/env_config_race_reasoning_0steps.json \
---levelConfig=./config/level_config/flappybirdgame/level1.json \
---output_dir=runs/ \
---test_rounds=1
+--levelConfig=./config/level_config/racegame/level1_no_history.json \
+--output_dir=runs/Qwen2_5VL_7B \
+--test_rounds=10
 ```
 
 #### multi_runner.py: To evaluate multiple levels
 
 ```bash
 python multi_runner.py \
---config_file=./config/multi_runner_config/FlappyBird_3steps.json\
+--config_file=./config/multi_runner_config/Race_3steps.json \
 --llmProviderConfig=./config/model_config/openai_service_config.ini \
+--output_dir=runs/Qwen2_5VL_7B \
 --test_rounds=10
 ```
 

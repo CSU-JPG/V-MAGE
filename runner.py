@@ -1,6 +1,7 @@
 import argparse
 import importlib
 import os
+import pathlib
 import threading
 import time
 
@@ -17,28 +18,25 @@ def main(args):
     lmm_config = configparser.ConfigParser()
     lmm_config.read(args.llmProviderConfig)
     
+    model_name = args.llmProviderConfig.split("/")[-1].split(".")[0]
+    
     try:
       model_name = lmm_config.get('lmm', 'model_path')
       model_name = model_name.replace("/", "_")
     except:
       model_name = lmm_config.get('lmm', 'model_name')
     
-    # model_name = args.llmProviderConfig.split("/")[-1].split(".")[0]
-    
     level_name = args.levelConfig.split("/")[-1].split(".")[0]
-    env_name   = args.gameEnvConfig.split("/")[-1].split(".")[0].split("_")[-1]
+    
+    env_name = args.gameEnvConfig.split("/")[-1].split(".")[0]
+
+    game_name = config.env_short_name
+    
     wandb_run_name = f"{level_name}_{model_name}_{env_name}"
 
-    # key = os.environ.get('WANDB_API_KEY')
-    # wandb.login(key=key)
-    
-    # start a new wandb run to track this script
     wandb.init(
-        # set the wandb project where this run will be logged
-        # project=f"cradle-game-{config.env_short_name.lower()}-construction",
-        project=f"cradle-game-{config.env_short_name.lower()}-final",
+        project=f"V-MAGE-Game-{config.env_short_name.lower()}",
 
-        # track hyperparameters and run metadata
         config={
           "llmProviderConfig": args.llmProviderConfig,
           "gameEnvConfig": args.gameEnvConfig,
@@ -64,17 +62,22 @@ def main(args):
     df[level_name + "_completion_tokens"] = completion_tokens
     df[level_name + "_total_tokens"] = total_tokens
     
-    csv_filename = f"{config.env_short_name}_{wandb_run_name}_scores.csv"
-    df.to_csv(csv_filename, index=False)
+    csv_filepath = os.path.join(args.output_dir, 'csv_results', game_name)
+    pathlib.Path(csv_filepath).mkdir(parents=True, exist_ok=True)
     
-    print("Results saved to", csv_filename)
+    csv_filename = f"{config.env_short_name}_{wandb_run_name}_scores.csv"
+    
+    csv_filepath = os.path.join(csv_filepath, csv_filename)
+    df.to_csv(csv_filepath, index=False)
+    
+    print("Results saved to", csv_filepath)
     
     wandb.log({csv_filename: df}) 
 
 
 def get_args_parser():
 
-    parser = argparse.ArgumentParser("Cradle Agent Runner")
+    parser = argparse.ArgumentParser("V-MAGE Agent Runner")
     parser.add_argument("--llmProviderConfig", type=str, default="./config/gpt_server_config.ini", help="The path to the LLM provider config file.")
     parser.add_argument("--gameEnvConfig", type=str, default="./config/env_config/env_config_race.json", help="The path to the environment config file.")
     parser.add_argument("--levelConfig", type=str, default="./config/level_config/racegame/level1.json", help="The path to the level config file.")

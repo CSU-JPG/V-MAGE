@@ -2,19 +2,19 @@
     "project_name": "Mario_3steps_split_3",
     "tasks": [
         {
-            "gameEnvConfig": "./config/env_config/env_config_mario_reasoning_3steps.json",
+            "gameEnvConfig": "./config/env_config/env_config_supermario_reasoning_3steps.json",
             "levelConfig": "./config/level_config/supermariogame/level6.json"
         },
         {
-            "gameEnvConfig": "./config/env_config/env_config_mario_reasoning_3steps.json",
+            "gameEnvConfig": "./config/env_config/env_config_supermario_reasoning_3steps.json",
             "levelConfig": "./config/level_config/supermariogame/level7.json"
         },
         {
-            "gameEnvConfig": "./config/env_config/env_config_mario_reasoning_3steps.json",
+            "gameEnvConfig": "./config/env_config/env_config_supermario_reasoning_3steps.json",
             "levelConfig": "./config/level_config/supermariogame/level8.json"
         },
         {
-            "gameEnvConfig": "./config/env_config/env_config_mario_reasoning_3steps.json",
+            "gameEnvConfig": "./config/env_config/env_config_supermario_reasoning_3steps.json",
             "levelConfig": "./config/level_config/supermariogame/level9.json"
         }
     ]
