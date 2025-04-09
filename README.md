@@ -10,7 +10,7 @@
 
 
 <p align="center">
-   <a href="https://csu-jpg.github.io/V-MAGE/" target="_blank">🌐 Project Page</a> | <a href="" target="_blank">📃 Paper </a> | <a href="" target="_blank">🤗 Playground </a> 
+   <a href="https://csu-jpg.github.io/V-MAGE/" target="_blank">🌐 Project Page</a> | <a href="https://arxiv.org/abs/2504.06148" target="_blank">📃 Paper </a> | <a href="" target="_blank">🤗 Playground </a> 
 </p>
 
 
@@ -162,7 +162,12 @@ Thanks to the open-source community, we are able to leverage existing game codeb
 ## 📜 Citation
 
 ```
-will be added soon
+@article{zheng2025vmagebenchmark,
+      title={V-MAGE: A Game Evaluation Framework for Assessing Visual-Centric Capabilities in Multimodal Large Language Models}, 
+      author={Xiangxi Zheng and Linjie Li and Zhengyuan Yang and Ping Yu and Alex Jinpeng Wang and Rui Yan and Yuan Yao and Lijuan Wang},
+      journal={arXiv preprint arXiv:2504.06148},
+      year={2025},
+}
 ```
 
 

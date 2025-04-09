@@ -86,20 +86,30 @@
                   <a target="_blank" href="https://sites.google.com/site/larsliden">Lars Liden</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
                   <a target="_blank" href="https://www.microsoft.com/en-us/research/people/jfgao/">Jianfeng Gao</a><sup>1</sup><sup>▽</sup>&nbsp;&nbsp;&nbsp;<br> -->
                   
+                  <!-- \icmlauthor{Xiangxi Zheng}{nju}
+                  \icmlauthor{Linjie Li}{ms}
+                  \icmlauthor{Zhengyuan Yang}{ms}
+                  \icmlauthor{Ping Yu}{nju}
+                  \icmlauthor{Alex Jinpeng Wang}{csu}
+                  \icmlauthor{Rui Yan}{nju}
+                  \icmlauthor{Yuan Yao}{nju}
+                  \icmlauthor{Lijuan Wang}{ms} -->
                   <a target="_blank" href="">Xiangxi Zheng</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
-                  <a target="_blank" href="">XXXX</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
-                  <a target="_blank" href="">XXXX</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
-                  <a target="_blank" href="">XXXX</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
-                  <a target="_blank" href="">XXXX</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
-                  <a target="_blank" href="">XXXX</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="">Linjie Li</a><sup>2</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="">Zhengyuan Yang</a><sup>2</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="">Ping Yu</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="">Alex Jinpeng Wang</a><sup>3</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="">Rui Yan</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="">Yuan Yao</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="">Lijuan Wang</a><sup>2</sup>&nbsp;&nbsp;&nbsp;
                     
                   <br>
-                  <sup>?</sup>Microsoft Research&nbsp;&nbsp;&nbsp;&nbsp;
-                  <sup>?</sup>Nanjing University&nbsp;&nbsp;&nbsp;&nbsp;
-                  <sup>?</sup>Central South University&nbsp;&nbsp;&nbsp;&nbsp;
+                  <sup>1</sup>Nanjing University&nbsp;&nbsp;&nbsp;&nbsp;
+                  <sup>2</sup>Microsoft Research&nbsp;&nbsp;&nbsp;&nbsp;
+                  <sup>3</sup>Central South University&nbsp;&nbsp;&nbsp;&nbsp;
                   <!-- <sup>4</sup>KAIST&nbsp;&nbsp;&nbsp;&nbsp;
                   <sup>5</sup>University of Washington -->
-                  <br>&ast; Project lead.&nbsp;&nbsp;&nbsp;&nbsp;<sup>†</sup>First authors.&nbsp;&nbsp;&nbsp;&nbsp;<sup>‡</sup>Second authors.&nbsp;&nbsp;&nbsp;&nbsp;<sup>▽</sup>Leadership
+                  <!-- <br>&ast; Project lead.&nbsp;&nbsp;&nbsp;&nbsp;<sup>†</sup>First authors.&nbsp;&nbsp;&nbsp;&nbsp;<sup>‡</sup>Second authors.&nbsp;&nbsp;&nbsp;&nbsp;<sup>▽</sup>Leadership -->
                 </span>
               </div>
               <div class="column has-text-centered">
@@ -117,7 +127,7 @@
   
                   <!-- arXiv Link. -->
                   <span class="link-block">
-                    <a target="_blank" href=""
+                    <a target="_blank" href="https://arxiv.org/abs/2504.06148"
                        class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
                           <i class="ai ai-arxiv"></i>
@@ -126,7 +136,7 @@
                     </a>
                   </span>
                   <span class="link-block">
-                    <a href=""
+                    <a target="_blank" href="https://github.com/CSU-JPG/V-MAGE"
                        class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
                           <i class="fab fa-github"></i>
@@ -136,7 +146,7 @@
                     </span>
                     <!-- Dataset Link. -->
                     <span class="link-block">
-                      <a href="https://huggingface.co/spaces/Fengx1nn/V-MAGE-Playground"
+                      <a target="_blank" href="https://huggingface.co/spaces/Fengx1nn/V-MAGE-Playground"
                          class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                             <img src="static/images/hf_icon.svg" />
@@ -146,7 +156,7 @@
                       </span>
                     
                     <span class="link-block">
-                      <a href="https://huggingface.co/spaces/Fengx1nn/V-MAGE-Evaluation"
+                      <a target="_blank" href="https://huggingface.co/spaces/Fengx1nn/V-MAGE-Evaluation"
                           class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                             <img src="static/images/hf_icon.svg" />
@@ -245,59 +255,12 @@
       </div>
     </section>
 
-    <section class="section body">
-      <div class="container">
-        <div class="columns is-centered">
-          <div class="column is-full-width">
-            <h2 class="title is-3" style="text-align: center; padding-bottom: 10px;margin-top: -40px;">  Pipeline</h2>
-            <div class="columns is-centered">
-              <div class="column is-four-fifths">
-                <div class="columns is-centered">
-                  <div style="width: 100%; display: inline-block;">
-                    <img src="./static/images/pipeline2.png">
-                  </div>
-                </div>
-                <p style="text-align: left;font-size: 18px; margin-top: 20px;"><strong>V-MAGE Evaluation Pipeline.</strong> 
-                  We selected five different games and designed several levels for each game to decompose the evaluation of model performance. 
-                  The games used are <strong style="color: rgb(0, 97, 243);">FlappyBird, RaceGame, SuperMario, PongGame, and Tempest Run.</strong> <br>
-                  During the evaluation process, the <strong>Agent</strong> module receives visual game state information from the <strong>Game</strong> module, specifically in the form of game screenshots. Within the <strong>Agent</strong> module, these screenshots are structured into inputs for the model. 
-                  In the baseline agent of <strong>V-MAGE</strong>, inputs to the MLLM models are constructed by combining screenshots from the most recent three frames with a prompt containing the game rules. 
-                  The output of the model is processed by the <strong>Agent</strong> module into response actions, which are subsequently sent back to the <strong>Game</strong> module.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section class="section body">
       <div class="container">
         <div class="columns is-centered">
           <div class="column is-full-width">
-            <h2 class="title is-3" style="text-align: center; padding-bottom: 10px;margin-top: -40px;">Comparison</h2>
-            <div class="columns is-centered">
-              <div class="column is-four-fifths">
-                <div class="columns is-centered">
-                  <div style="width: 100%; display: inline-block;">
-                    <img src="./static/images/comparison table.png">
-                  </div>
-                </div>
-                <p style="text-align: left;font-size: 18px; margin-top: 20px;"><strong>The comparison of V-MAGE with existing game-based evaluation benchmarks.</strong> 
-                  *Text in V-MAGE only represents the instructions for game rules and output format.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section body">
-      <div class="container">
-        <div class="columns is-centered">
-          <div class="column is-full-width">
-            <h2 class="title is-3" style="text-align: center; padding-bottom: 10px;margin-top: -40px;">Model Performance</h2>
+            <h2 class="title is-3" style="text-align: center; padding-bottom: 10px;margin-top: -40px;">Performance</h2>
             <div class="columns is-centered">
               <div class="column is-four-fifths">
 
@@ -364,6 +327,56 @@
         </div>
       </div>
     </section>
+
+    <section class="section body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3" style="text-align: center; padding-bottom: 10px;margin-top: -40px;">  Pipeline</h2>
+            <div class="columns is-centered">
+              <div class="column is-four-fifths">
+                <div class="columns is-centered">
+                  <div style="width: 100%; display: inline-block;">
+                    <img src="./static/images/pipeline2.png">
+                  </div>
+                </div>
+                <p style="text-align: left;font-size: 18px; margin-top: 20px;"><strong>V-MAGE Evaluation Pipeline.</strong> 
+                  We selected five different games and designed several levels for each game to decompose the evaluation of model performance. 
+                  The games used are <strong style="color: rgb(0, 97, 243);">FlappyBird, RaceGame, SuperMario, PongGame, and Tempest Run.</strong> <br>
+                  During the evaluation process, the <strong>Agent</strong> module receives visual game state information from the <strong>Game</strong> module, specifically in the form of game screenshots. Within the <strong>Agent</strong> module, these screenshots are structured into inputs for the model. 
+                  In the baseline agent of <strong>V-MAGE</strong>, inputs to the MLLM models are constructed by combining screenshots from the most recent three frames with a prompt containing the game rules. 
+                  The output of the model is processed by the <strong>Agent</strong> module into response actions, which are subsequently sent back to the <strong>Game</strong> module.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3" style="text-align: center; padding-bottom: 10px;margin-top: -40px;">Comparison</h2>
+            <div class="columns is-centered">
+              <div class="column is-four-fifths">
+                <div class="columns is-centered">
+                  <div style="width: 100%; display: inline-block;">
+                    <img src="./static/images/comparison table.png">
+                  </div>
+                </div>
+                <p style="text-align: left;font-size: 18px; margin-top: 20px;"><strong>The comparison of V-MAGE with existing game-based evaluation benchmarks.</strong> 
+                  *Text in V-MAGE only represents the instructions for game rules and output format.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
 
 
 
