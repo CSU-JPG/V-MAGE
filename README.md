@@ -6,7 +6,7 @@
 # V-MAGE: A Game Evaluation Framework for Assessing Visual-Centric Capabilities in MLLMs
 
 
-![](./docs/static/images/overview.png)
+![](./docs/static/images/overview_5_15.png)
 
 
 <p align="center">
@@ -18,25 +18,32 @@
 
 V-MAGE is a **game-based** benchmark designed to evaluate **visual-centric** capabilities through **flexible gameplay** and **carefully designed levels**. Its defining features are as follows:
   
-- **Visual-Centric**: Models receive only visual input, requiring pixel-level scene understanding, object tracking, and spatial-temporal reasoning.
-- **Flexible Gameplay**: Unlike grid-based benchmarks, V-MAGE features continuous-space environments, allowing models to explore a almost infinite state space with no single correct solution.
-- **Granular Skill Assessment**: Each game are deigned with different difficulty levels that targeting various skill dimensions.
-- **Extensible Evaluation Framework**: V-MAGE extends beyond model evaluation to assess agentic skills that is current out-of-scope for SOTA MLLMs
-- **Adaptive ELO-based Ranking**: V-MAGE uses a dynamic Elo system for performance comparison, avoiding manual score normalization and performance ceilings.
+
+- **Vision Centric Gameplay**: Models receive only visual input, requiring pixel-level scene understanding, object tracking, and spatial-temporal reasoning. V-MAGE features continuous-space environments, allowing models to explore the almost infinite state space. Each game is deigned with different difficulty levels that targeting various skill dimensions.
+- **Extensible Evaluation Framework**: 
+V-MAGE extends beyond model evaluation to assess agentic skills that are out-of-scope for current MLLMs. Our game-agent-model three-module evaluation pipeline allows optimizations in both MLLMs and their agent strategies.
+
+- **Adaptive ELO-based Ranking**: 
+V-MAGE uses a dynamic Elo system to provide a unified and interpretable metric across diverse games and difficulty levels. Unlike raw scores, which vary in scale across tasks, the Elo rating captures relative skill levels by modeling win–loss dynamics between model performances on shared levels. 
 
 
 ## 📈 Leaderboard 
 
-| model | avg_elo | race | supermario | pong | flappybird | tempestrun |
-| --- | --- | --- | --- | --- | --- | --- |
-| gpt4o | **1550.83** | **1605.57** | 1536.58 | 1506.19 | **1590.23** | 1515.60 |
-| qwen2_5vl_72b | 1543.85 | 1546.67 | **1608.86**| 1496.32 | 1535.53 | 1531.89 |
-| gemini-2.0-flash-exp | 1522.82 | 1519.88 | 1536.84 | **1516.51** | 1524.91 | 1515.96 |
-| internvl2_5_78b | 1512.60 | 1468.74 | 1573.56 | 1512.72 | 1497.01 | 1510.96 |
-| qwen2vl_72b | 1506.49 | 1509.68 | 1535.26 | 1498.65 | 1455.87 | **1532.99** |
-| internvl2_5_8b | 1466.12 | 1464.91 | 1393.19 | 1505.23 | 1489.18 | 1478.11 |
-| random | 1450.53 | 1445.54 | 1436.00 | 1487.91 | 1457.36 | 1425.84 |
-| qwen2vl_7b | 1446.75 | 1439.01 | 1379.71 | 1476.48 | 1449.90 | 1488.66 |
+| Model                  | Pong | Race | Flappybird | Tempestrun | SuperMario | Average |
+|------------------------|------|------|------------|------------|------------|---------|
+| **Closed-Source Models** |      |      |            |            |            |         |
+| Claude-3.7-sonnet      | **1607** | **1626** | **1578**       | 1513       | **1601**       | **1591**    |
+| GPT-4o                 | 1487 | 1582 | 1573       | 1514       | 1512       | 1526    |
+| Gemini-2.0-Flash (Thinking)| 1518 | 1550 | 1533       | 1498       | 1588       | 1553    |
+| Gemini-2.0-Flash       | 1502 | 1498 | 1513       | 1515       | 1512       | 1510    |
+| **Open-Source Models** |      |      |            |            |            |         |
+| Qwen2VL-7B             | 1464 | 1417 | 1438       | 1488       | 1361       | 1412    |
+| Qwen2VL-72B            | 1479 | 1527 | 1521       | 1530       | 1580       | 1543    |
+| Qwen2.5VL-72B          | 1485 | 1489 | 1440       | **1531**       | 1509       | 1494    |
+| InternVL2.5-8B         | 1489 | 1442 | 1481       | 1471       | 1372       | 1428    |
+| InternVL2.5-78B        | 1492 | 1447 | 1481       | 1514       | 1510       | 1510    |
+| **Baseline** |      |      |            |            |            |         |
+| Random                 | 1477 | 1424 | 1440       | 1424       | 1419       | 1431    |
 
 [Submit](https://github.com/fengxin-zhxx/V-MAGE-Results) your own agent results.
 
