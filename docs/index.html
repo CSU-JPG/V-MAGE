@@ -216,7 +216,7 @@
       <div class="container is-max-desktop">
         <div class="hero-body">
           <div align="center">
-            <img src="./static/images/overview.png" alt="Image description" width="100%">
+            <img src="./static/images/overview_5_15.png" alt="Image description" width="100%">
           </div>  
           <br> 
           <!-- <h2 class="subtitle has-text-centered"> -->
@@ -243,10 +243,13 @@
         <div class="columns is-centered has-text-centered">
           <div class="column is-two-thirds ">
             <div class="content has-text-justified">
-              Recent advancements in Multimodal Large Language Models (<strong>MLLMs</strong>) have led to significant improvements across various multimodal benchmarks. However, as evaluations shift from static datasets to open-world, dynamic environments, current game-based benchmarks remain inadequate—they lack visual-centric tasks and fail to assess the diverse reasoning skills required for real-world decision-making.
-              To address this, we introduce <strong>V</strong>isual-centric <strong>M</strong>ultiple <strong>A</strong>bilities <strong>G</strong>ame Evaluation (<strong>V-MAGE</strong>), a game-based evaluation framework designed to assess MLLMs’ visual reasoning capabilities. V-MAGE features five diverse games with 30+ handcrafted levels, testing models on core visual skills such as positioning, trajectory tracking, timing, and visual memory, alongside higher-level reasoning like long-term planning and deliberation.
-              We use <strong>V-MAGE</strong> to evaluate leading MLLMs, revealing significant challenges in their visual perception and reasoning. In all game environments, the top-performing MLLMs (including models such as GPT-4o and Gemini-2.0-flash-exp), as determined by Elo rating comparisons, exhibit a substantial performance gap compared to humans.
-              Our findings highlight critical limitations, including various types of perceptual errors made by the models, and suggest potential avenues for improvement from an agent-centric perspective, such as refining agent strategies and addressing perceptual inaccuracies.
+              Recent advancements in Multimodal Large Language Models (<strong>MLLMs</strong>) have demonstrated impressive capabilities in visual-text processing. However, existing static image-text benchmarks are insufficient for evaluating their dynamic perception and interactive reasoning abilities. 
+              We introduce <strong>V</strong>ision-centric <strong>M</strong>ultiple <strong>A</strong>bilities <strong>G</strong>ame <strong>E</strong>valuation (<strong>V-MAGE</strong>), a novel game-based evaluation framework designed to systematically assess MLLMs’ visual reasoning in interactive, continuous-space environments. V-MAGE features five distinct video games comprising over 30 carefully constructed 
+              evaluation scenarios. These scenarios are set in free-form, visually complex environments that require models to interpret dynamic game states and make decisions based solely on visual input, thereby closely reflecting the conditions encountered by human players. To ensure robust and interpretable comparisons across models, 
+              V-MAGE employs a dynamic Elobased ranking system that accounts for varying difficulty levels and task diversity. 
+              Benchmarking state-of-the-art MLLMs against human baselines reveals that while leading models approach human-level performance in simple tasks, their performance drops significantly in complex scenarios requiring advanced reasoning and task orchestration. This persistent performance gap highlights fundamental limitations in current MLLMs’ ability to perform real-time, 
+              vision-grounded interactions. Through extensive analyses, we demonstrate the utility of V-MAGE in uncovering these limitations and providing actionable insights for improving the visual and reasoning capabilities of MLLMs in dynamic, interactive settings.
+              
             </div>
           </div>
           </div>
@@ -391,7 +394,7 @@
               <div class="column is-four-fifths">
                 <div class="columns is-centered">
                   <div style="width: 100%; display: inline-block;">
-                    <img src="./static/images/result table 2.png">
+                    <img src="./static/images/result table 3.png">
                   </div>
                 </div>
                 <p style="text-align: left;font-size: 18px; margin-top: 20px;"><strong>Evaluation results(Elo rating).</strong> 
@@ -407,11 +410,70 @@
               <div class="column is-four-fifths">
                 <div class="columns is-centered">
                   <div style="width: 100%; display: inline-block;">
-                    <img src="./static/images/model_analysis_broken_axis_4.png">
+                    <img src="./static/images/model_analysis_broken_axis.png">
                   </div>
                 </div>
                 <p style="text-align: left;font-size: 18px; margin-top: 20px;"><strong>Evaluation results(Score).</strong> 
-                  The MLLM trails humans by a large margin in all six games.
+                  The MLLM trails humans by a large margin in all six games. The levels with an asterisk (*) represent 'no history'.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3" style="text-align: center; padding-bottom: 10px;margin-top: -40px;">Further Analysis</h2>
+            <div class="columns is-centered">
+              <div class="column is-four-fifths">
+                <div class="columns is-centered">
+                  <div style="width: 100%; display: inline-block;">
+                    <img src="./static/images/ability_map_and_perception_skip.png">
+                  </div>
+                </div>
+                <!-- <p style="text-align: left;font-size: 18px; margin-top: 20px;"><strong>Evaluation results(Elo rating).</strong>  -->
+                  <!-- Performance comparison across different games based on the elo ranking system. -->
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      <br>
+      <br>
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <div class="columns is-centered">
+              <div class="column is-four-fifths">
+                <div class="columns is-centered">
+                  <div style="width: 100%; display: inline-block;">
+                    <img src="./static/images/error_distribution.png">
+                  </div>
+                </div>
+                <!-- <p style="text-align: left;font-size: 18px; margin-top: 20px;"><strong>Evaluation results(Score).</strong>  -->
+                  <!-- The MLLM trails humans by a large margin in all six games. The levels with an asterisk (*) represent 'no history'. -->
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+      <br>
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <div class="columns is-centered">
+              <div class="column is-four-fifths">
+                <div class="columns is-centered">
+                  <div style="width: 100%; display: inline-block;">
+                    <img src="./static/images/anchoring bias rounds.png">
+                  </div>
+                </div>
+                <!-- <p style="text-align: left;font-size: 18px; margin-top: 20px;"><strong>Evaluation results(Score).</strong>  -->
+                  <!-- The MLLM trails humans by a large margin in all six games. The levels with an asterisk (*) represent 'no history'. -->
                 </p>
               </div>
             </div>
@@ -430,7 +492,7 @@
               <div class="column is-four-fifths">
                 <div class="columns is-centered">
                   <div style="width: 100%; display: inline-block;">
-                    <img src="./static/images/perception error case.png">
+                    <img src="./static/images/error case.png">
                   </div>
                 </div>
                 <p style="text-align: left;font-size: 18px; margin-top: 20px;"><strong>Error analysis</strong> in RaceGame and FlappyBird.
