@@ -3,7 +3,7 @@ import importlib
 
 class ProviderFactory:
     @staticmethod
-    def getProvider(llm_provider_config_path):
+    def getProvider(llm_provider_config_path, generation_config_path):
         lmm_config = configparser.ConfigParser()
         lmm_config.read(llm_provider_config_path)
         
@@ -18,6 +18,6 @@ class ProviderFactory:
             
         if provider_class is not None:
             # 返回类实例
-            return provider_class(llm_provider_config_path)
+            return provider_class(llm_provider_config_path, generation_config_path)
 
         return None

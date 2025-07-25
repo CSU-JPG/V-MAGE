@@ -83,7 +83,7 @@ def get_args_parser():
     parser.add_argument("--levelConfig", type=str, default="./config/level_config/racegame/level1.json", help="The path to the level config file.")
     
     
-    parser.add_argument("--generationConfig", type=str, default="./config/generation_config.ini", help="The path to the swift generation config file.")
+    parser.add_argument("--generationConfig", type=str, default="./config/model_config/generation_config.ini", help="The path to the generation config file.")
     
     parser.add_argument("--test_rounds", type=int, default=1, help="Rounds to test the game.")
     

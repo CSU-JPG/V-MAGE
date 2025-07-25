@@ -29,6 +29,8 @@ class OpenAIProvider:
         self.prompt_tokens = 0
         self.completion_tokens = 0
         self.total_tokens = 0
+        
+        print(f"OpenAIProvider initialized with model: {self.model_path}, max_new_tokens: {self.max_new_tokens}, temperature: {self.temperature}, top_p: {self.top_p}")
     
     def reset(self):
         self.llm_config.read(self.llm_provider_config_path)

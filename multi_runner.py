@@ -18,6 +18,7 @@ def get_args_parser():
     
     parser = argparse.ArgumentParser("V-MAGE Agent Runner")
     parser.add_argument("--config_file", type=str, default="./config/tasks_config.json", help="Path to the tasks config JSON file.")
+    parser.add_argument("--generationConfig", type=str, default="./config/model_config/generation_config.ini", help="The path to the swift generation config file.")
     parser.add_argument("--test_rounds", type=int, default=1, help="Rounds to test the game.")
     parser.add_argument("--output_dir", type=str, default="./runs", help="The path to output the results and log.")
     parser.add_argument("--llmProviderConfig", type=str, help="The path to the LLM provider config file.")

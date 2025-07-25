@@ -1,0 +1,48 @@
+{
+    "project_name": "Mario_no_reasoning_3steps",
+    "tasks": [
+        
+        {
+            "gameEnvConfig": "./config/env_config/no_reasoning/3steps/env_config_supermario_no_reasoning_3steps.json",
+            "levelConfig": "./config/level_config/supermariogame/level1.json"
+        },
+        {
+            "gameEnvConfig": "./config/env_config/no_reasoning/3steps/env_config_supermario_no_reasoning_3steps.json",
+            "levelConfig": "./config/level_config/supermariogame/level2.json"
+        },
+        {
+            "gameEnvConfig": "./config/env_config/no_reasoning/3steps/env_config_supermario_no_reasoning_3steps.json",
+            "levelConfig": "./config/level_config/supermariogame/level3.json"
+        },
+        {
+            "gameEnvConfig": "./config/env_config/no_reasoning/3steps/env_config_supermario_no_reasoning_3steps.json",
+            "levelConfig": "./config/level_config/supermariogame/level4.json"
+        },
+        {
+            "gameEnvConfig": "./config/env_config/no_reasoning/3steps/env_config_supermario_no_reasoning_3steps.json",
+            "levelConfig": "./config/level_config/supermariogame/level5.json"
+        },
+        {
+            "gameEnvConfig": "./config/env_config/no_reasoning/3steps/env_config_supermario_no_reasoning_3steps.json",
+            "levelConfig": "./config/level_config/supermariogame/level6.json"
+        },
+        {
+            "gameEnvConfig": "./config/env_config/no_reasoning/3steps/env_config_supermario_no_reasoning_3steps.json",
+            "levelConfig": "./config/level_config/supermariogame/level7.json"
+        },
+        {
+            "gameEnvConfig": "./config/env_config/no_reasoning/3steps/env_config_supermario_no_reasoning_3steps.json",
+            "levelConfig": "./config/level_config/supermariogame/level8.json"
+        },
+        {
+            "gameEnvConfig": "./config/env_config/no_reasoning/3steps/env_config_supermario_no_reasoning_3steps.json",
+            "levelConfig": "./config/level_config/supermariogame/level9.json"
+        },
+        {
+            "gameEnvConfig": "./config/env_config/no_reasoning/3steps/env_config_supermario_no_reasoning_3steps.json",
+            "levelConfig": "./config/level_config/supermariogame/level0.json"
+        }
+    ]
+}
+  
+  

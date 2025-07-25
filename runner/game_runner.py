@@ -48,6 +48,8 @@ class GamePipelineRunner():
         self.llm_provider_config_path = args.llmProviderConfig
         self.llm_provider = None
         
+        self.generation_config_path = args.generationConfig if hasattr(args, 'generationConfig') else None
+        
         self.agent = None
         self.reset()
         
@@ -55,7 +57,7 @@ class GamePipelineRunner():
         if self.llm_provider:
             self.llm_provider.reset()
         else:
-            self.llm_provider = ProviderFactory.getProvider(self.llm_provider_config_path)
+            self.llm_provider = ProviderFactory.getProvider(self.llm_provider_config_path, self.generation_config_path)
         
         if self.agent is None:
             self.agent = game_agent(self.llm_provider)
