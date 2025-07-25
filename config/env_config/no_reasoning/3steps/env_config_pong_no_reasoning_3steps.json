@@ -1,0 +1,34 @@
+{
+    "env_name": "Pong Game",
+    "env_short_name": "ponggame",
+    
+    "game_module": "game.pong_game",
+    "game_class": "PongGame",
+    "prompt": "./res/ponggame/prompts/templates/ponggame.prompt",
+
+    "use_history": "True",
+    "history": [
+        {
+            "text": "Now, I will give you some screenshots in the current game for decision making."
+        },
+        {
+            "image": "", 
+            "text": "This screenshot is three steps before the current step of the game. After this frame, your action was \"<$history_action_3$>\". After this action was excuted, the game info was \"<$history_action_info_3$>\""
+        },
+        {
+            "image": "", 
+            "text": "This screenshot is two steps before the current step of the game. After this frame, your action was \"<$history_action_2$>\". After this action was excuted, the game info was \"<$history_action_info_2$>\""
+        },
+        {
+            "image": "", 
+            "text": "This screenshot is the previous step of the game. After this frame, your action was \"<$history_action_1$>\". After this action was excuted, the game info was \"<$history_action_info_1$>\""
+        }
+    ],
+
+
+    "use_instruction": "False",
+    "instruction": [
+        "TODO"
+    ]
+
+}

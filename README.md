@@ -112,7 +112,7 @@ openai_api_base = http://localhost:8000/v1 # or your own service address
 ```bash
 python runner.py \
 --llmProviderConfig=./config/model_config/openai_service_config.ini \
---gameEnvConfig=./config/env_config/env_config_race_reasoning_0steps.json \
+--gameEnvConfig=./config/env_config/0steps/env_config_race_reasoning_0steps.json \
 --levelConfig=./config/level_config/racegame/level1_no_history.json \
 --output_dir=runs/Qwen2_5VL_7B \
 --test_rounds=10
@@ -122,7 +122,7 @@ python runner.py \
 
 ```bash
 python multi_runner.py \
---config_file=./config/multi_runner_config/Race_3steps.json \
+--config_file=./config/multi_runner_config/3steps/Race_3steps.json \
 --llmProviderConfig=./config/model_config/openai_service_config.ini \
 --output_dir=runs/Qwen2_5VL_7B \
 --test_rounds=10

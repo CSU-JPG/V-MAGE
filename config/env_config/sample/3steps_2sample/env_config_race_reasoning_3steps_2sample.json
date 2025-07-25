@@ -1,0 +1,40 @@
+{
+    "env_name": "Race Game",
+    "env_short_name": "racegame",
+    
+    "game_module": "game.race_game",
+    "game_class": "RaceGame",
+    "prompt": "./res/racegame/prompts/templates/racegame.prompt",
+
+    "use_history": "True",
+    "history": [
+        {
+            "text": "Now, I will give you some history screenshots in the game for decision making."
+        },
+        {
+            "image": "", 
+            "text": "This screenshot is three steps before the current step of the game. After this frame, your reasoning message was \"<$history_reasoning_3$>\". After the action was excuted, the game info was \"<$history_action_info_3$>\""
+        },
+        {
+            "image": "", 
+            "text": "This screenshot is two steps before the current step of the game. After this frame, your reasoning message was \"<$history_reasoning_2$>\". After the action was excuted, the game info was \"<$history_action_info_2$>\""
+        },
+        {
+            "image": "", 
+            "text": "This screenshot is the previous step of the game. After this frame, your reasoning message was \"<$history_reasoning_1$>\". After the action was excuted, the game info was \"<$history_action_info_1$>\""
+        }
+    ],
+    "use_sample_history": "True",
+    "sample_size": 2,
+    "sample_histroy_template" : {
+        "image":"",
+        "text": "This screenshot is <$sample_step$> steps before the current step of the game. After this frame, your reasoning message was \"<$sample_history_reasoning$>\". After the action was excuted, the game info was \"<$sample_history_action_info$>\""
+    },
+
+
+    "use_instruction": "False",
+    "instruction": [
+        "TODO"
+    ]
+
+}

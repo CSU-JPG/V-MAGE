@@ -79,7 +79,7 @@ def get_args_parser():
 
     parser = argparse.ArgumentParser("V-MAGE Agent Runner")
     parser.add_argument("--llmProviderConfig", type=str, default="./config/gpt_server_config.ini", help="The path to the LLM provider config file.")
-    parser.add_argument("--gameEnvConfig", type=str, default="./config/env_config/env_config_race.json", help="The path to the environment config file.")
+    parser.add_argument("--gameEnvConfig", type=str, default="./config/env_config/3steps/env_config_race.json", help="The path to the environment config file.")
     parser.add_argument("--levelConfig", type=str, default="./config/level_config/racegame/level1.json", help="The path to the level config file.")
     
     
