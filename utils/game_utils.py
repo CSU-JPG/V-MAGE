@@ -3,6 +3,9 @@ from datetime import datetime
 import pygame, os
 import time
 
+from utils.config import Config
+
+config = Config()
 
 def capture(pygame_screen, output_dir):
     if output_dir == "":
@@ -13,9 +16,19 @@ def capture(pygame_screen, output_dir):
         # 获取当前屏幕的大小
         
         screen_width, screen_height = pygame_screen.get_size()
-        image_size_height = 360
         
-        image_size = (int(screen_width * image_size_height / screen_height), image_size_height)
+        if config.resolution_height == -1:
+            if config.resolution_width == -1:
+                image_size_height = 360
+                image_size = (int(screen_width * image_size_height / screen_height), image_size_height)
+            else:
+                image_size_width = config.resolution_width
+                image_size = (image_size_width, int(screen_height * image_size_width / screen_width))
+        else:
+            image_size_height = config.resolution_height
+            image_size = (int(screen_width * image_size_height / screen_height), image_size_height)
+        
+        # print(f"Resolution: {image_size}, Original Size: {pygame_screen.get_size()}")
         
         # 创建一个新表面，并将当前屏幕内容缩放到该表面
         scaled_surface = pygame.transform.scale(pygame_screen, image_size)

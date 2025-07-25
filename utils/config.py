@@ -70,11 +70,14 @@ class Config(metaclass=Singleton):
         self.prompt = kget(self.env_config, 'prompt', default='')
         self.instruction_images = kget(self.env_config, 'instruction_images', default='Error')
         
+        self.resolution_height = kget(self.env_config, 'resolution_height', default=360)
+        self.resolution_width = kget(self.env_config, 'resolution_width', default=-1)
+        
     def load_level_config(self, level_config_path):
         # Ensure level_config_path exists
         if not os.path.exists(level_config_path):
             self.level_config = None
-            return 
+            return  
         
         # 加载关卡参数
         path = assemble_project_path(level_config_path)
