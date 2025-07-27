@@ -10,6 +10,10 @@ class Config(metaclass=Singleton):
     
     # work_dir = './runs'
     FPS = 30
+    save_response = False
+    output_dir  = './runs'
+    extra_config = {}
+    
     
     """
     Configuration class.
@@ -20,6 +24,7 @@ class Config(metaclass=Singleton):
         if not os.path.exists(env_config_path):
             raise FileNotFoundError(f"Level config path {env_config_path} does not exist.")
         
+        self.env_config_path = env_config_path
         # 加载游戏参数
         path = assemble_project_path(env_config_path)
         self.env_config = load_json(path)

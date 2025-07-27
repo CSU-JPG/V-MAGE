@@ -116,7 +116,8 @@ class PygameBase(ABC):
         self.new_action_event.clear()  # 清除事件，准备接收下一个动作
         frame = 0
         frame_flag = True
-        
+        sample_frames = self.sample_frames if config.extra_config["overwrite_sample_frames"] == -1 else config.extra_config["overwrite_sample_frames"]
+        print("Using sample frames:", sample_frames)
         
         while not self.over:
             config.pbar.set_postfix(avg_score=config.now_avg_score, score=self.score, frames=len(self.game_frames))
@@ -125,7 +126,7 @@ class PygameBase(ABC):
             
             if not frame_flag:
                 frame += 1
-                if frame != self.sample_frames:
+                if frame != sample_frames:
                     step_action = self.history_valid_action
                     if self.action_in_sample_frames is not None:
                         step_action = self.action_in_sample_frames

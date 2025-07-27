@@ -100,12 +100,19 @@ class GamePipelineRunner():
         return scores, self.game.game_frames
         
     def pipeline_shutdown(self):
+        if config.save_response:
+            self.agent.save_response_record()
+            
         self.agent = None
-        pass
+        print("GamePipelineRunner shutdown.")
 
 
 def entry(args, run_name=""):
+    config.output_dir = args.output_dir
+    config.save_response = args.save_response
     
+    config.extra_config = vars(args)
+    print("Extra Config:", config.extra_config)
     
     pipelineRunner = GamePipelineRunner(args)
     

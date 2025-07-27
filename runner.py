@@ -81,13 +81,11 @@ def get_args_parser():
     parser.add_argument("--llmProviderConfig", type=str, default="./config/gpt_server_config.ini", help="The path to the LLM provider config file.")
     parser.add_argument("--gameEnvConfig", type=str, default="./config/env_config/3steps/env_config_race.json", help="The path to the environment config file.")
     parser.add_argument("--levelConfig", type=str, default="./config/level_config/racegame/level1.json", help="The path to the level config file.")
-    
-    
     parser.add_argument("--generationConfig", type=str, default="./config/model_config/generation_config.ini", help="The path to the generation config file.")
-    
     parser.add_argument("--test_rounds", type=int, default=1, help="Rounds to test the game.")
-    
     parser.add_argument("--output_dir", type=str, default="./runs", help="The path to output the results and log.")
+    parser.add_argument("--save_response", action="store_true", default=False, help="Whether to save the response.")
+    parser.add_argument("--overwrite_sample_frames", type=int, default=-1, help="The number of frames to overwrite in the sample frames. -1 means no overwrite.")
     
     return parser
 
