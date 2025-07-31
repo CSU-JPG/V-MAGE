@@ -10,7 +10,7 @@
 
 
 <p align="center">
-   <a href="https://csu-jpg.github.io/V-MAGE/" target="_blank">🌐 Project Page</a> | <a href="https://arxiv.org/abs/2504.06148" target="_blank">📃 Paper </a> | <a href="https://huggingface.co/spaces/Fengx1nn/V-MAGE-DEMO" target="_blank">🤗 Playground </a> 
+   <a href="https://csu-jpg.github.io/V-MAGE/" target="_blank">🌐 Project Page</a> | <a href="https://arxiv.org/abs/2504.06148" target="_blank">📃 Paper </a> | <a href="https://huggingface.co/spaces/Fengx1nn/V-MAGE-DEMO" target="_blank">🤗 GamePlay </a> | <a href="https://huggingface.co/spaces/Fengx1nn/V-MAGE-EVAL-DEMO" target="_blank">🤗 Evaluation </a> 
 </p>
 
 
