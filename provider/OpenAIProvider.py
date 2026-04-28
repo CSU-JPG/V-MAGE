@@ -18,7 +18,14 @@ class OpenAIProvider:
         self.model_path = self.llm_config.get('lmm', 'model_path')
         self.openai_api_key = self.llm_config.get('lmm', 'openai_api_key')
         self.openai_api_base = self.llm_config.get('lmm', 'openai_api_base')
-  
+
+        # Optional toggle for hybrid-thinking models (e.g. Qwen3-VL, GLM-4.5V).
+        # Pass through OpenAI extra_body.chat_template_kwargs.enable_thinking when set.
+        if self.llm_config.has_option('lmm', 'think_mode'):
+            self.think_mode = self.llm_config.get('lmm', 'think_mode').lower() == 'true'
+        else:
+            self.think_mode = None
+
         self.image_prompt_format = "openai"
         
         # Generation config
@@ -56,12 +63,17 @@ class OpenAIProvider:
                     base_url=self.openai_api_base,
                 )
 
+                extra_body = {}
+                if self.think_mode is not None:
+                    extra_body["chat_template_kwargs"] = {"enable_thinking": self.think_mode}
+
                 chat_response = client.chat.completions.create(
                     model=self.model_path,
                     messages=message_prompts,
                     temperature=self.temperature,
                     top_p=self.top_p,
-                    max_tokens=self.max_new_tokens
+                    max_tokens=self.max_new_tokens,
+                    extra_body=extra_body,
                 )
                 
                 response_text = chat_response.choices[0].message.content

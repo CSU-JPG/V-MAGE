@@ -100,13 +100,17 @@ class GamePipelineRunner():
         return scores, self.game.game_frames
         
     def pipeline_shutdown(self):
+        if config.save_response:
+            self.agent.save_response_record()
+
         self.agent = None
-        pass
 
 
 def entry(args, run_name=""):
-    
-    
+    config.output_dir = args.output_dir
+    config.save_response = getattr(args, "save_response", False)
+    config.extra_config = vars(args)
+
     pipelineRunner = GamePipelineRunner(args)
     
     pickle_record_path = os.path.join(pipelineRunner.record_path, config.env_short_name, f"record_{run_name}.pickle") 

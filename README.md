@@ -1,17 +1,17 @@
-*link:* [*CSU-JPG V-MAGE Repo*](https://github.com/CSU-JPG/V-MAGE)
----
-<br>
-<br>
-
-# V-MAGE: A Game Evaluation Framework for Assessing Visual-Centric Capabilities in MLLMs
+# [ACL '26 Findings] V-MAGE: A Game Evaluation Framework for Assessing Visual-Centric Capabilities in MLLMs
 
 
-![](./docs/static/images/overview_5_15.png)
+![](./docs/static/images/overview_260415.png)
 
 
 <p align="center">
-   <a href="https://csu-jpg.github.io/V-MAGE/" target="_blank">🌐 Project Page</a> | <a href="https://arxiv.org/abs/2504.06148" target="_blank">📃 Paper </a> | <a href="https://huggingface.co/spaces/Fengx1nn/V-MAGE-DEMO" target="_blank">🤗 GamePlay </a> | <a href="https://huggingface.co/spaces/Fengx1nn/V-MAGE-EVAL-DEMO" target="_blank">🤗 Evaluation </a> 
+   <a href="https://csu-jpg.github.io/V-MAGE/" target="_blank">🌐 Project Page</a> | <a href="https://arxiv.org/abs/2504.06148" target="_blank">📃 Paper </a> | <a href="https://huggingface.co/spaces/Fengx1nn/V-MAGE-Playground" target="_blank">🤗 Playground </a> | <a href="https://huggingface.co/spaces/Fengx1nn/V-MAGE-Evaluation" target="_blank">🤗 Evaluation </a>
 </p>
+
+
+## 📰 News
+
+- **[2026.04.07]** 🎉 Our **CharTide** is accepted by **ACL 2026 Findings**！
 
 
 ## ✨ Introducing **V-MAGE Benchmark**
@@ -27,25 +27,33 @@ V-MAGE extends beyond model evaluation to assess agentic skills that are out-of-
 V-MAGE uses a dynamic Elo system to provide a unified and interpretable metric across diverse games and difficulty levels. Unlike raw scores, which vary in scale across tasks, the Elo rating captures relative skill levels by modeling win–loss dynamics between model performances on shared levels. 
 
 
-## 📈 Leaderboard 
+## 📈 Leaderboard
 
-| Model                  | Pong | Race | Flappybird | Tempestrun | SuperMario | Average |
-|------------------------|------|------|------------|------------|------------|---------|
-| **Closed-Source Models** |      |      |            |            |            |         |
-| Claude-3.7-sonnet      | **1607** | **1626** | **1578**       | 1513       | **1601**       | **1591**    |
-| GPT-4o                 | 1487 | 1582 | 1573       | 1514       | 1512       | 1526    |
-| Gemini-2.0-Flash (Thinking)| 1518 | 1550 | 1533       | 1498       | 1588       | 1553    |
-| Gemini-2.0-Flash       | 1502 | 1498 | 1513       | 1515       | 1512       | 1510    |
-| **Open-Source Models** |      |      |            |            |            |         |
-| Qwen2VL-7B             | 1464 | 1417 | 1438       | 1488       | 1361       | 1412    |
-| Qwen2VL-72B            | 1479 | 1527 | 1521       | 1530       | 1580       | 1543    |
-| Qwen2.5VL-72B          | 1485 | 1489 | 1440       | **1531**       | 1509       | 1494    |
-| InternVL2.5-8B         | 1489 | 1442 | 1481       | 1471       | 1372       | 1428    |
-| InternVL2.5-78B        | 1492 | 1447 | 1481       | 1514       | 1510       | 1510    |
-| **Baseline** |      |      |            |            |            |         |
-| Random                 | 1477 | 1424 | 1440       | 1424       | 1419       | 1431    |
+Performance comparison across different games based on the ELO ranking system. The Random baseline refers to randomly selecting actions from the predefined action space during decision-making phases. **Avg. Ratio** refers to the average percentage of the model's score compared to the human baseline score.
 
-[Submit](https://github.com/fengxin-zhxx/V-MAGE-Results) your own agent results.
+| Model                       | Flappybird | Pong     | Race     | Supermario | Tempestrun | Avg. ELO Score | Avg. Ratio (%) |
+|-----------------------------|------------|----------|----------|------------|------------|----------------|----------------|
+| **Closed-Source Models**    |            |          |          |            |            |                |                |
+| GPT-5-2025-08-07            | 1572       | **1939** | **1710** | 1584       | **1743**   | **1710**       | **43.4**       |
+| Gemini-2.5-Pro              | 1526       | 1602     | 1660     | **1758**   | 1474       | 1604           | 36.3           |
+| Claude-3.7-Sonnet           | 1560       | 1570     | 1633     | 1582       | 1369       | 1543           | 30.8           |
+| Gemini-2.5-Flash            | **1578**   | 1524     | 1520     | 1531       | 1489       | 1528           | 23.8           |
+| GPT-4o                      | 1557       | 1449     | 1581     | 1518       | 1527       | 1526           | 26.6           |
+| Gemini-2.0-Flash (Thinking) | 1517       | 1479     | 1503     | 1564       | 1516       | 1516           | 22.6           |
+| GPT-5.1-2025-11-13          | 1552       | 1514     | 1507     | 1449       | 1411       | 1486           | 20.1           |
+| Gemini-2.0-Flash            | 1494       | 1461     | 1437     | 1499       | 1530       | 1484           | 16.7           |
+| **Open-Source Models**      |            |          |          |            |            |                |                |
+| Qwen3-VL-235B-A22B-Instruct | 1567       | 1441     | 1517     | 1556       | 1496       | 1515           | 24.3           |
+| Qwen2.5-VL-72B-Instruct     | 1556       | 1442     | 1506     | 1541       | 1530       | 1515           | 22.8           |
+| InternVL2.5-78B             | 1463       | 1462     | 1465     | 1543       | 1528       | 1492           | 19.2           |
+| Qwen2-VL-72B-Instruct       | 1426       | 1445     | 1442     | 1505       | 1547       | 1473           | 16.5           |
+| InternVL2.5-8B              | 1459       | 1448     | 1431     | 1373       | 1495       | 1441           | 12.9           |
+| Qwen2.5-VL-7B-Instruct      | 1457       | 1446     | 1423     | 1354       | 1517       | 1439           | 12.1           |
+| Qwen2-VL-7B-Instruct        | 1470       | 1447     | 1408     | 1362       | 1501       | 1438           | 11.4           |
+| Keye-VL-8B-Preview          | 1419       | 1444     | 1428     | 1381       | 1499       | 1434           | 13.1           |
+| Phi-4-multimodal-instruct   | 1404       | 1454     | 1420     | 1482       | 1385       | 1429           | 13.7           |
+| **Baseline**                |            |          |          |            |            |                |                |
+| Random                      | 1422       | 1434     | 1410     | 1417       | 1445       | 1426           | 11.0           |
 
 ## 🚀 Quick Start
 
@@ -133,23 +141,6 @@ If you don't want to watch the game screen, you can set the environment variable
 ```bash
 export SDL_VIDEODRIVER=dummy
 ```
-
-## 📚 Documentation
-
-### Other Model Providers
-
-will be added soon
-
-<!-- 拓展Agent -->
-### Extending Your Own Agent
-
-will be added soon
-
-<!-- 接入新的游戏 -->
-### Adding New Games
-
-will be added soon
-
 
 ## 🔗 Others
 

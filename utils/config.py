@@ -7,19 +7,25 @@ from utils.dict_utils import kget
 
 
 class Config(metaclass=Singleton):
-    
+
     # work_dir = './runs'
     FPS = 30
-    
+
+    save_response = False
+    output_dir = './runs'
+    extra_config = {}
+
     """
     Configuration class.
     """
     def load_env_config(self, env_config_path):
-        
+
         # Ensure env_config_path exists
         if not os.path.exists(env_config_path):
             raise FileNotFoundError(f"Level config path {env_config_path} does not exist.")
-        
+
+        self.env_config_path = env_config_path
+
         # 加载游戏参数
         path = assemble_project_path(env_config_path)
         self.env_config = load_json(path)

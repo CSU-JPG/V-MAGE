@@ -49,18 +49,21 @@ def main(args):
 
     scores = entry(args, wandb_run_name)
     score, valid_rate = [score["score"] for score in scores], [score["valid rate"] for score in scores]
-    
+
     prompt_tokens, completion_tokens, total_tokens = \
       [score["prompt_tokens"] for score in scores], \
       [score["completion_tokens"] for score in scores], \
       [score["total_tokens"] for score in scores]
-    
+
+    decision_steps = [score.get("decision_steps", -1) for score in scores]
+
     df = pd.DataFrame(columns=[])
-    df[level_name + "_score"] = score	
+    df[level_name + "_score"] = score
     df[level_name + "_valid_rate"] = valid_rate
     df[level_name + "_prompt_tokens"] = prompt_tokens
     df[level_name + "_completion_tokens"] = completion_tokens
     df[level_name + "_total_tokens"] = total_tokens
+    df[level_name + "_decision_steps"] = decision_steps
     
     csv_filepath = os.path.join(args.output_dir, 'csv_results', game_name)
     pathlib.Path(csv_filepath).mkdir(parents=True, exist_ok=True)
@@ -86,9 +89,11 @@ def get_args_parser():
     parser.add_argument("--generationConfig", type=str, default="./config/model_config/generation_config.ini", help="The path to the generation config file.")
     
     parser.add_argument("--test_rounds", type=int, default=1, help="Rounds to test the game.")
-    
+
     parser.add_argument("--output_dir", type=str, default="./runs", help="The path to output the results and log.")
-    
+
+    parser.add_argument("--save_response", action="store_true", default=False, help="Whether to dump every prompt/response pair to <output_dir>/response_record/.")
+
     return parser
 
 

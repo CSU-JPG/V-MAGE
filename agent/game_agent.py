@@ -1,9 +1,13 @@
+import os
+import pickle
 import queue
 import random
 import re
+import time
 from time import sleep
 from typing import Dict
 from utils.config import Config
+from utils.dict_utils import kget
 from utils.encoding_utils import encode_data_to_base64_path, encode_image_path
 from utils.file_utils import assemble_project_path, get_all_files
 from utils.json_utils import parse_semi_formatted_text
@@ -47,10 +51,12 @@ class game_agent:
         else:
             self.history_size = 1
             self.history = []
-        
+
         self.reset_provider(llm_provider)
-        
-    
+
+        self.response_record = []
+
+
     def reset_provider(self, llm_provider):
         self.llm_provider = llm_provider
         if self.history is not None and len(self.history) > 0:
@@ -256,9 +262,20 @@ class game_agent:
         
         # Call the LLM provider for decision making
         response = self.llm_provider.create_completion(message_prompts)
-        
-        
-        
+
+        if config.save_response:
+            self.response_record.append({
+                "message": message_prompts,
+                "response": response,
+                "timestamp": time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())),
+                "model": self.llm_provider.model_path,
+                "env": config.env_name,
+                "level": kget(config.level_config, 'level', default=None) if getattr(config, "level_config", None) else None,
+            })
+
+            if len(self.response_record) % 500 == 0:
+                self.save_response_record()
+
         response = response.replace("#", "")
         response = re.sub(r'\n+', '\n', response)
         
@@ -270,5 +287,44 @@ class game_agent:
         self.update_recent_history({"history_reasoning": str(data)})
         
         action = self.generate_action(data)
-        
+
         return action
+
+    def save_response_record(self):
+        """Persist all collected (prompt, response) pairs to a pickle file under output_dir/response_record/."""
+        if not self.response_record:
+            return
+
+        save_dir = os.path.join(config.output_dir, 'response_record')
+        os.makedirs(save_dir, exist_ok=True)
+        config_name = config.env_config_path.split('config/env_config/')[-1].replace('.json', '').replace('/', '_')
+        model_name = self.llm_provider.model_path.replace('/', '_').replace('.', '_')
+        save_path = os.path.join(save_dir, f"{model_name}_{config_name}.pkl")
+
+        all_record = []
+        with open(save_path, "ab+") as f:
+            try:
+                import fcntl
+                fcntl.flock(f.fileno(), fcntl.LOCK_EX)
+
+                f.seek(0)
+                try:
+                    if os.path.getsize(save_path) > 0:
+                        all_record = pickle.load(f)
+                except EOFError:
+                    all_record = []
+                except Exception as e:
+                    print(f"Error loading existing records: {e}")
+                    all_record = []
+
+                all_record.extend(self.response_record)
+
+                f.seek(0)
+                f.truncate()
+                pickle.dump(all_record, f)
+                print("save record, now count:", len(all_record), " save_path: ", save_path)
+
+            finally:
+                fcntl.flock(f.fileno(), fcntl.LOCK_UN)
+
+        self.response_record = []

@@ -22,6 +22,7 @@ def get_args_parser():
     parser.add_argument("--test_rounds", type=int, default=1, help="Rounds to test the game.")
     parser.add_argument("--output_dir", type=str, default="./runs", help="The path to output the results and log.")
     parser.add_argument("--llmProviderConfig", type=str, help="The path to the LLM provider config file.")
+    parser.add_argument("--save_response", action="store_true", default=False, help="Whether to dump every prompt/response pair to <output_dir>/response_record/.")
     return parser
 
 
